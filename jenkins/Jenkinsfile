@@ -1,10 +1,10 @@
 pipeline {
-    agent any
-        tools {
-        //工具名称必须在Jenkins 管理Jenkins → 全局工具配置中预配置。
-        maven 'apache-maven-3.1.1'
-
-       }
+    agent {
+        docker {
+            image 'maven:3-alpine' 
+            args '-v /root/.m2:/root/.m2' 
+        }
+    }
     stages {
         stage('Build') {
             steps {
