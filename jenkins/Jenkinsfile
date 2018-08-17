@@ -1,10 +1,10 @@
 pipeline {
-    agent {
+    agent any
         tools {
         //工具名称必须在Jenkins 管理Jenkins → 全局工具配置中预配置。
         maven 'apache-maven-3.1.1'
+
        }
-     }
     stages {
         stage('Build') {
             steps {
